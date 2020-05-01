@@ -5,10 +5,10 @@
 ![](https://img.shields.io/github/v/release/Dapp3rDuck/duckbot?include_prereleases&style=flat-square)<br/>
 
 ### FAQ
-**Why does it exist?**
+**Why does it exist?**<br>
 idek
 
-**Why did I make it?**
+**Why did I make it?**<br>
 idek
 
 ## Getting Started
