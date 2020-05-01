@@ -5,6 +5,11 @@ import random
 from discord.ext import commands
 from dotenv import load_dotenv
 
+load_dotenv()
+token = os.getenv("TOKEN")
+
+client = commands.Bot(command_prefix = 'd!')
+
 def isfloat(val):
     try:
         float(val)
@@ -19,14 +24,8 @@ def isint(val):
         return False
     return True
 
-async def error(context):
-    await context.send("ERROR")
-
-
-load_dotenv()
-token = os.getenv("TOKEN")
-
-client = commands.Bot(command_prefix = 'd!')
+async def error(context, err):
+    await context.send(f"```ERROR: {err}```")
 
 @client.event
 async def on_ready():
@@ -63,9 +62,9 @@ async def spam(ctx, *, text):
                 await ctx.send(' '.join(msg))
     
         else:
-            error(ctx)
+            error(ctx, 'd!spam [message] [num of messages] [delay]')
 
     else:
-        error(ctx)
+        error(ctx, 'd!spam [message] [num of messages] [delay]')
 
 client.run(token)
