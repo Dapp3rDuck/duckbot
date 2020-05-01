@@ -11,6 +11,7 @@ helpInfo = info.help
 
 dospam = False
 insults = open("insults.txt", "r").readlines()
+compliments = open("compliments.txt", "r").readlines()
 
 load_dotenv()
 token = os.getenv("TOKEN")
@@ -26,7 +27,7 @@ async def on_ready():
 @client.command()
 async def help(msg):
 
-    info = "```DuckBot Help\n--}=========>\n"
+    info = "```----------- DuckBot Help ------------\nhttps://github.com/Dapp3rDuck/duckbot\n-------------------------------------\n"
     for command in helpInfo:
         info += f"{command} - {helpInfo[command]}\n"
     info += '```'
@@ -52,6 +53,10 @@ async def stop(msg):
 
 @client.command()
 async def insult(msg, *, text):
-    await msg.send(f"{text} {insults[random.randint(0, 3)]}")
+    await msg.send(f"{text} {insults[random.randint(0, (len(insults)-1))]}")
+
+@client.command()
+async def compliment(msg, *, text):
+    await msg.send(f"{text} {compliments[random.randint(0, (len(compliments)-1))]}")
 
 client.run(token)
