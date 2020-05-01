@@ -28,7 +28,8 @@ async def help(msg):
 
     info = "```DuckBot Help\n--}=========>\n"
     for command in helpInfo:
-        info += f"{command} - {helpInfo[command]}"
+        info += f"{command} - {helpInfo[command]}\n"
+    info += '```'
 
     await msg.send(info)
 
