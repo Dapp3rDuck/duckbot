@@ -16,7 +16,7 @@ compliments = open("compliments.txt", "r").readlines()
 load_dotenv()
 token = os.getenv("TOKEN")
 
-client = commands.Bot(command_prefix = "d!")
+client = commands.Bot(command_prefix="d!")
 client.remove_command("help")
 
 @client.event
@@ -26,11 +26,9 @@ async def on_ready():
 
 @client.command()
 async def help(msg):
-
     embed = discord.Embed(title="DuckBot Help", description="[**GitHub**](https://www.github.com/dapp3rduck/duckbot)")
     for command in helpInfo:
         embed.add_field(name=f"d!{command}", value=helpInfo[command], inline=False)
-
     await msg.send(embed=embed)
 
 @client.command()
