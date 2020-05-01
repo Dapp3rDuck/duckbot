@@ -2,6 +2,7 @@ import os
 import time
 import random
 import discord
+import validators
 
 from discord.ext import commands
 from dotenv import load_dotenv
@@ -57,13 +58,16 @@ async def compliment(msg, *, text):
     await msg.send(f"{text} {compliments[random.randint(0, (len(compliments)-1))]}")
 
 @client.command()
-async def addmeme(msg, *, text):
+async def addmeme(msg):
     try:
         url = msg.message.attachments[0].url
     except:
-        url = text
-    open("memes.txt", "a").write('\n' + url)
-    await msg.send('Added to meme database')
+        url = msg.message.content.replace("d!addmeme ", "")
+    if validators.url(url):
+        open("memes.txt", "a").write('\n' + url)
+        await msg.send('Added to meme database')
+    else:
+        await msg.send('INVALID LINK')
 
 @client.command()
 async def meme(msg):
