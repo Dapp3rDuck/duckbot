@@ -5,10 +5,12 @@ import random
 from discord.ext import commands
 from dotenv import load_dotenv
 
+
 load_dotenv()
 token = os.getenv("TOKEN")
 
 client = commands.Bot(command_prefix = 'd!')
+client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="you beans"))
 
 def isfloat(val):
     try:
