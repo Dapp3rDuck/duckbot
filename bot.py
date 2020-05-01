@@ -27,12 +27,15 @@ async def on_ready():
 @client.command()
 async def help(msg):
 
+<<<<<<< HEAD
     info = "```----------- DuckBot Help ------------\nhttps://github.com/Dapp3rDuck/duckbot\n-------------------------------------\n"
+=======
+    embed = discord.Embed(title="Help", description="Help info")
+>>>>>>> 64bad58305bc61696e1a7207d365e1da828f60dc
     for command in helpInfo:
-        info += f"{command} - {helpInfo[command]}\n"
-    info += '```'
+        embed.add_field(name=command, value=helpInfo[command])
 
-    await msg.send(info)
+    await msg.send(embed=embed)
 
 @client.command()
 async def ping(msg):
