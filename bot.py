@@ -29,7 +29,7 @@ async def help(msg):
 
     embed = discord.Embed(title="DuckBot Help", description="[**GitHub**](https://www.github.com/dapp3rduck/duckbot)")
     for command in helpInfo:
-        embed.add_field(name=command, value=helpInfo[command], inline=False)
+        embed.add_field(name=f"d!{command}", value=helpInfo[command], inline=False)
 
     await msg.send(embed=embed)
 
