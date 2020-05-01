@@ -5,13 +5,9 @@ import discord
 
 from discord.ext import commands
 from dotenv import load_dotenv
+from config import info
 
-helpInfo = {
-    "help": "does this.", 
-    "ping": "shows your ping.", 
-    "spam": "spams a message.", 
-    "stop": "stops spamming... maybe."
-}
+helpInfo = info.help
 
 dospam = False
 insults = open("insults.txt", "r").readlines()
