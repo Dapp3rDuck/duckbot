@@ -3,8 +3,10 @@ import os
 import time
 import random
 from discord.ext import commands
+from dotenv import load_dotenv
 
-token = "NzA1NjExMDE1MjczOTcxODA0.XquNfA.rAzSDHLQRPTqlMybMSV-JoCPYlU"
+load_dotenv()
+token = os.getenv("TOKEN")
 
 client = commands.Bot(command_prefix = 'd!')
 
