@@ -11,10 +11,8 @@
 
 ## Getting Started
 
-```
-$ git clone git@github.com:Dapp3rDuck/duckbot.git
-$ pip install discord.py
-```
+Invite the bot: https://discordapp.com/api/oauth2/authorize?client_id=705577357859094571&permissions=8&scope=bot
+
 ## Contributors
 <table>
   <tr>
