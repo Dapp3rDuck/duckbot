@@ -1,8 +1,8 @@
 help = {
-    "help": "does this", 
-    "ping": "shows your ping", 
-    "spam": "spams a message", 
-    "stop": "stops spamming... maybe",
-    "insult": "insults a user of your choice",
-    "compliment": "compliments a user of your choice"
+    "help": "Does this", 
+    "ping": "Shows your ping", 
+    "spam": "Spams a message", 
+    "stop": "Stops spamming... maybe",
+    "insult": "Insults a user of your choice",
+    "compliment": "Compliments a user of your choice"
 }
