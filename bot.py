@@ -28,17 +28,17 @@ async def ping(ctx):
 
 @client.command()
 async def spam(ctx, *, text):
-    args = text.split(" ")
+    msg = text.split(" ")
     cmd_args = []
 
     for x in range(2):
-        cmd_args.append(args.pop(-1))
+        cmd_args.append(msg.pop(-1))
 
     delay = int(cmd_args[0])
     repeat = int(cmd_args[1])
 
     for x in range(repeat):
         time.sleep(delay)
-        await ctx.send(' '.join(args))
+        await ctx.send(' '.join(msg))
 
 client.run(token)
