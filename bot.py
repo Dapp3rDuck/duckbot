@@ -58,4 +58,18 @@ async def insult(msg, *, text):
 async def compliment(msg, *, text):
     await msg.send(f"{text} {compliments[random.randint(0, (len(compliments)-1))]}")
 
+@client.command()
+async def addmeme(msg, *, text):
+    try:
+        url = msg.message.attachments[0].url
+    except:
+        url = text
+    open("memes.txt", "a").write('\n' + url)
+    await msg.send('Added to meme database')
+
+@client.command()
+async def meme(msg):
+    memes = open("memes.txt", "r").readlines()
+    await msg.send(memes[random.randint(0, (len(memes)-1))])
+    
 client.run(token)
