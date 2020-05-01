@@ -1,8 +1,8 @@
 # Duckbot
 ![](https://img.shields.io/badge/build-passing-green/?style=flat-square)
-![](https://img.shields.io/github/repo-size/Dapp3rDuck/fractals?style=flat-square)
-![](https://img.shields.io/github/issues/Dapp3rDuck/fractals?style=flat-square)
-![](https://img.shields.io/github/v/release/Dapp3rDuck/fractals?include_prereleases&style=flat-square)<br/>
+![](https://img.shields.io/github/repo-size/Dapp3rDuck/duckbot?style=flat-square)
+![](https://img.shields.io/github/issues/Dapp3rDuck/duckbot?style=flat-square)
+![](https://img.shields.io/github/v/release/Dapp3rDuck/duckbot?include_prereleases&style=flat-square)<br/>
 
 * Duck bot serves no purpose
 * None whatsoever
