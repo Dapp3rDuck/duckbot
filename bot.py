@@ -11,11 +11,11 @@ load_dotenv()
 token = os.getenv("TOKEN")
 
 client = commands.Bot(command_prefix = 'd!')
-client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="you beans"))
 
 @client.event
 async def on_ready():
     print('bot is ready')
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="you beans"))
 
 @client.event
 async def on_member_join(member):
