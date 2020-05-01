@@ -27,11 +27,7 @@ async def on_ready():
 @client.command()
 async def help(msg):
 
-<<<<<<< HEAD
-    info = "```----------- DuckBot Help ------------\nhttps://github.com/Dapp3rDuck/duckbot\n-------------------------------------\n"
-=======
-    embed = discord.Embed(title="Help", description="Help info")
->>>>>>> 64bad58305bc61696e1a7207d365e1da828f60dc
+    embed = discord.Embed(title="DuckBot Help", description="https://www.github.com/dapp3rduck/duckbot")
     for command in helpInfo:
         embed.add_field(name=command, value=helpInfo[command])
 
