@@ -34,7 +34,7 @@ async def spam(ctx, *, text):
     for x in range(2):
         cmd_args.append(msg.pop(-1))
 
-    delay = int(cmd_args[0])
+    delay = float(cmd_args[0])
     repeat = int(cmd_args[1])
 
     for x in range(repeat):
