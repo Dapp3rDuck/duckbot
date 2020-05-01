@@ -27,7 +27,9 @@ async def ping(ctx):
     await ctx.send(f'{round(client.latency * 1000)}ms')
 
 @client.command()
-async def echo(ctx, *, text):
-    await ctx.send(text)
+async def spam(ctx, *, text):
+    list = text.split(" ")
+    print(list)
+    await ctx.send(list[0])
 
 client.run(token)
