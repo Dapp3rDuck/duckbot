@@ -1,49 +1,60 @@
-import discord
 import os
 import time
 import random
+import discord
+
 from discord.ext import commands
 from dotenv import load_dotenv
 
-dospam = False
+helpInfo = {
+    "help": "does this.", 
+    "ping": "shows your ping.", 
+    "spam": "spams a message.", 
+    "stop": "stops spamming... maybe."
+}
 
-f = open("insults.txt", "r")
-insults = f.readlines()
+dospam = False
+insults = open("insults.txt", "r").readlines()
 
 load_dotenv()
 token = os.getenv("TOKEN")
 
-client = commands.Bot(command_prefix = 'd!')
-client.remove_command('help')
+client = commands.Bot(command_prefix = "d!")
+client.remove_command("help")
 
 @client.event
 async def on_ready():
-    print('bot is ready')
+    print("bot is ready")
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="you beans"))
 
 @client.command()
-async def help(ctx):
-    await ctx.send("```DuckBot Help\n--}=========>\nhelp - does this\nping - shows your ping\nspam - spams a message\nstop - stops spamming, mabey```")
+async def help(msg):
+
+    info = "```DuckBot Help\n--}=========>\n"
+    for command in helpInfo:
+        info += f"{command} - {helpInfo[command]}"
+
+    await msg.send(info)
 
 @client.command()
-async def ping(ctx):
-    await ctx.send(f'{round(client.latency * 1000)}ms')
+async def ping(msg):
+    await msg.send(f"{round(client.latency * 1000)}ms")
 
 @client.command()
-async def spam(ctx, *, text):
+async def spam(msg, *, text):
     global dospam
     dospam = True
     while dospam:
         time.sleep(1)
-        await ctx.send(text)
+        await msg.send(text)
 
 @client.command()
-async def stop(ctx):
+async def stop(msg):
     global dospam
     dospam = False
 
 @client.command()
-async def insult(ctx, *, text):
-    await ctx.send(text + " " + insults[random.randint(0,3)])
+async def insult(msg, *, text):
+    await msg.send(f"{text} {insults[random.randint(0, 3)]}")
 
 client.run(token)
