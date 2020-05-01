@@ -5,6 +5,8 @@ import random
 from discord.ext import commands
 from dotenv import load_dotenv
 
+dospam = False
+
 load_dotenv()
 token = os.getenv("TOKEN")
 
@@ -28,14 +30,15 @@ async def ping(ctx):
 
 @client.command()
 async def spam(ctx, *, text):
-    msg = text.split(" ")
-    cmd_args = []
-    for x in range(2):
-        cmd_args.append(msg.pop(-1))       
-    delay = float(cmd_args[0])
-    repeat = int(cmd_args[1])
-    for x in range(repeat):
-        await ctx.send(' '.join(msg))
-        time.sleep(delay)
+    global dospam
+    dospam = True
+    while dospam:
+        time.sleep(1)
+        await ctx.send(text)
+
+@client.command()
+async def stop(ctx):
+    global dospam
+    dospam = False
 
 client.run(token)
