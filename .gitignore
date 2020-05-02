@@ -1,3 +1,6 @@
 .env
 *.pyc
 config/__pycache__
+compliments.txt
+insults.txt
+memes.txt
