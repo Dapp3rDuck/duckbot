@@ -1,4 +1,4 @@
-# Duckbot
+# DuckBot
 ![](https://img.shields.io/badge/build-passing-green/?style=flat-square)
 ![](https://img.shields.io/github/repo-size/Dapp3rDuck/duckbot?style=flat-square)
 ![](https://img.shields.io/github/issues/Dapp3rDuck/duckbot?style=flat-square)
