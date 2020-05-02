@@ -4,16 +4,19 @@
 ![](https://img.shields.io/github/issues/Dapp3rDuck/duckbot?style=flat-square)
 ![](https://img.shields.io/github/v/release/Dapp3rDuck/duckbot?include_prereleases&style=flat-square)<br/>
 
+**Duck bot is a discord bot, made using the python api.  It's main purpose is to act as a meme database across multiple servers, but it also has some random features such as spam, or insult.  It is not for serious servers, but its fun just for messing around with friends or in small servers.**
+
 ### FAQ
 **Why does it exist?**<br>
-idek
+idk
 
 **Why did I make it?**<br>
-idek
+idk
 
 ## Getting Started
 
-Invite the bot [here](https://discordapp.com/api/oauth2/authorize?client_id=705577357859094571&permissions=8&scope=bot).
+Invite the bot [here](https://discordapp.com/api/oauth2/authorize?client_id=705577357859094571&permissions=8&scope=bot).<br>
+Run: ```d!help```
 
 ## Contributors
 <table>
