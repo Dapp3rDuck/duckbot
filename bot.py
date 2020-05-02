@@ -20,6 +20,9 @@ token = os.getenv("TOKEN")
 client = commands.Bot(command_prefix="d!")
 client.remove_command("help")
 
+def get_rand_element(arr):
+    return arr[random.randint(0, len(arr) - 1)]
+
 @client.event
 async def on_ready():
     print("bot is ready")
@@ -51,27 +54,24 @@ async def stop(msg):
 
 @client.command()
 async def insult(msg, *, text):
-    await msg.send(f"{text} {insults[random.randint(0, (len(insults)-1))]}")
+    await msg.send(f"{text} {get_rand_element(insults)}")
 
 @client.command()
 async def compliment(msg, *, text):
-    await msg.send(f"{text} {compliments[random.randint(0, (len(compliments)-1))]}")
+    await msg.send(f"{text} {get_rand_element(compliments)}")
 
 @client.command()
 async def addmeme(msg):
-    try:
-        url = msg.message.attachments[0].url
-    except:
-        url = msg.message.content.replace("d!addmeme ", "")
+    try: url = msg.message.attachments[0].url
+    except: url = msg.message.content.replace("d!addmeme ", "")
     if validators.url(url):
         open("memes.txt", "a").write('\n' + url)
-        await msg.send('Added to meme database')
-    else:
-        await msg.send('INVALID LINK')
+        await msg.send('Added to meme database.')
+    else: await msg.send('INVALID LINK')
 
 @client.command()
 async def meme(msg):
     memes = open("memes.txt", "r").readlines()
-    await msg.send(memes[random.randint(0, (len(memes)-1))])
-    
+    await msg.send(get_rand_element(memes))
+
 client.run(token)
