@@ -4,7 +4,7 @@
 ![](https://img.shields.io/github/issues/Dapp3rDuck/duckbot?style=flat-square)
 ![](https://img.shields.io/github/v/release/Dapp3rDuck/duckbot?include_prereleases&style=flat-square)<br/>
 
-**Duck bot is a discord bot, made using [discord's python api](https://discordpy.readthedocs.io/en/latest/).  It's main purpose is to act as a meme database across multiple servers, but it also has some random features such as spam, or insult.  It is not for serious servers, but its fun just for messing around with friends or in small servers.**
+**&nbsp;&nbsp;&nbsp;Duck bot is a discord bot, made using [discord's python api](https://discordpy.readthedocs.io/en/latest/).  It's main purpose is to act as a meme database across multiple servers, but it also has some random features such as spam, or insult.  It is not for serious servers, but its fun just for messing around with friends or in small servers.**
 
 ### FAQ
 **Why does it exist?**<br>
