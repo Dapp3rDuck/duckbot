@@ -26,13 +26,25 @@ def get_rand_element(arr):
 @client.event
 async def on_ready():
     print("bot is ready")
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="you beans"))
+    await client.change_presence(
+        activity=discord.Activity(
+            type=discord.ActivityType.watching, 
+            name="you beans"
+        )
+    )
 
 @client.command()
 async def help(msg):
-    embed = discord.Embed(title="DuckBot Help", description="[**GitHub**](https://www.github.com/dapp3rduck/duckbot)")
+    embed = discord.Embed(
+        title="DuckBot Help", 
+        description="[**GitHub**](https://www.github.com/dapp3rduck/duckbot)"
+    )
     for command in helpInfo:
-        embed.add_field(name=f"d!{command}", value=helpInfo[command], inline=False)
+        embed.add_field(
+            name=f"d!{command}",
+            value=helpInfo[command], 
+            inline=False
+        )
     await msg.send(embed=embed)
 
 @client.command()
