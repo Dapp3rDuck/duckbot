@@ -15,7 +15,7 @@ idk
 
 ## Getting Started
 
-Invite the bot [here](https://discordapp.com/api/oauth2/authorize?client_id=705577357859094571&permissions=8&scope=bot).<br>
+Invite the bot<br>
 Run: ```d!help```
 
 ## Contributors
