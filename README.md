@@ -15,10 +15,10 @@ idk
 
 ## Getting Started
 
-Create a new application in the [discord developer portal](https://discord.com/developers/applications) and copy the token
-Create a new file named .env which contains ```TOKEN = "<your token here>"```
-Create a new file named memes.txt
-Invite the bot
+Create a new application in the [discord developer portal](https://discord.com/developers/applications) and copy the token<br>
+Create a new file named .env which contains ```TOKEN = "<your token here>"```<br>
+Create a new file named memes.txt<br>
+Invite the bot<br>
 Run: ```d!help```
 
 ## Contributors
