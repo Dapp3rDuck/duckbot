@@ -86,4 +86,9 @@ async def meme(msg):
     memes = open("memes.txt", "r").readlines()
     await msg.send(get_rand_element(memes))
 
+# Register for Dapp3rCraft
+@client.command()
+async def register(msg, *, text):
+    pass
+
 client.run(token)
