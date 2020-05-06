@@ -15,7 +15,11 @@ idk
 
 ## Getting Started
 
-Invite the bot [here](https://discordapp.com/api/oauth2/authorize?client_id=705577357859094571&permissions=8&scope=bot).<br>
+Create a new application in the [discord developer portal](https://discord.com/developers/applications) and copy the token<br>
+Create a new file named .env which contains ```TOKEN = "<your token here>"```<br>
+Create a new file named memes.txt<br>
+Create new files named insults.txt and compliments.txt and put any insults/compliments you want in them<br>
+Invite the bot<br>
 Run: ```d!help```
 
 ## Contributors
