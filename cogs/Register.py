@@ -10,6 +10,8 @@ class Register(commands.Cog):
     @commands.command()
     async def register(self, msg):
         await msg.send('Registered')
+        channel = client.get_channel(707777532555952158)
+        await channel.send('whitelist add ' + msg)
         return
 
 def setup(client):
