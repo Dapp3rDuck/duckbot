@@ -9,7 +9,7 @@ class Register(commands.Cog):
     # Register for Dapp3rCraft
     @commands.command()
     async def register(self, msg):
-        await msg.send('Added to meme database.')
+        await msg.send('Registered')
         return
 
 def setup(client):
