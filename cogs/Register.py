@@ -5,7 +5,7 @@ from discord.utils import get
 class Register(commands.Cog):
 
     def __init__(self, client):
-        client = self.client
+        self.client = client
 
     # Register for Dapp3rCraft
     @commands.command()
@@ -13,8 +13,7 @@ class Register(commands.Cog):
         user = msg.message.author
         role = get(user.guild.roles, name="Members")
         await user.add_roles(role)
-        channel = client.get_channel(707777532555952158)
-        await channel.send('hello')
+        await self.client.get_channel(707777532555952158).send('hello')
         await msg.send('Registered ' + self + ' as ' + msg)
 
 def setup(client):
