@@ -1,5 +1,6 @@
 .env
 *.pyc
+__pycache__
 config/__pycache__
 compliments.txt
 insults.txt
