@@ -13,7 +13,7 @@ class Memes(commands.Cog):
 
     @commands.command()
     async def addmeme(self, msg):
-        if str(msg.author.id) in self.botAdmins:   
+        if True:   
             try: 
                 url = msg.message.attachments[0].url
             except: 
