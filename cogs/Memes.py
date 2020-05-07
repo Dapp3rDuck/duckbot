@@ -2,25 +2,30 @@ import discord
 import validators
 import random
 import os.path
+from config import info
 from discord.ext import commands
 
 class Memes(commands.Cog):
 
     def __init__(self, client):
         self.client = client
+        self.botAdmins = info.botAdmins
 
     @commands.command()
     async def addmeme(self, msg):
-        try: 
-            url = msg.message.attachments[0].url
-        except: 
-            url = msg.message.content.replace("d!addmeme ", "")
-        if validators.url(url):
-            path = os.path.dirname(__file__)
-            open(f"{path}/../memes.txt", "a").write('\n' + url)
-            await msg.send('Added to meme database.')
-        else: 
-            await msg.send('INVALID LINK')
+        if str(msg.author.id) in self.botAdmins:   
+            try: 
+                url = msg.message.attachments[0].url
+            except: 
+                url = msg.message.content.replace("d!addmeme ", "")
+            if validators.url(url):
+                path = os.path.dirname(__file__)
+                open(f"{path}/../memes.txt", "a").write('\n' + url)
+                await msg.send('Added to meme database.')
+            else: 
+                await msg.send('INVALID LINK')
+        else:
+            return await msg.send('You do not have permissions to use this command!')
 
     @commands.command()
     async def meme(self, msg):
