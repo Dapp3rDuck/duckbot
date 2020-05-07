@@ -11,19 +11,23 @@ class Memes(commands.Cog):
 
     @commands.command()
     async def addmeme(self, msg):
-        try: url = msg.message.attachments[0].url
-        except: url = msg.message.content.replace("d!addmeme ", "")
+        try: 
+            url = msg.message.attachments[0].url
+        except: 
+            url = msg.message.content.replace("d!addmeme ", "")
         if validators.url(url):
             path = os.path.dirname(__file__)
             open(f"{path}/../memes.txt", "a").write('\n' + url)
             await msg.send('Added to meme database.')
-        else: await msg.send('INVALID LINK')
+        else: 
+            await msg.send('INVALID LINK')
 
     @commands.command()
     async def meme(self, msg):
         path = os.path.dirname(__file__)
         memes = open(f"{path}/../memes.txt", "r").readlines()
-        await msg.send(self.get_rand_element(memes))
+        rand_meme = self.get_rand_element(memes)
+        await msg.send(rand_meme)
 
     def get_rand_element(self, arr):
         return arr[random.randint(0, len(arr) - 1)]
