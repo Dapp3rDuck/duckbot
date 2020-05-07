@@ -7,9 +7,9 @@ class Register(commands.Cog):
         self.client = client
 
     # Register for Dapp3rCraft
-    @client.command()
-    async def register(self, msg, *, text):
-        pass
+    @commands.command()
+    async def register(self, msg):
+        return
 
 def setup(client):
     client.add_cog(Register(client))
