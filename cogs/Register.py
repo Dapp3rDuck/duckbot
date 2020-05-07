@@ -15,10 +15,14 @@ class Register(commands.Cog):
         mc_username = msg.message.content.replace("d!register ", "")
         await user.add_roles(role)
         if mc_username != "d!register":
-            await self.client.get_channel(707777532555952158).send(f"whitelist add {mc_username}")
-            await msg.send('Registered ' + str(user) + ' as ' + mc_username)
+            self.whitelist(msg, mc_username, user)
         else:
-            await msg.send('Registered ' + str(user))
+            await msg.send("Registered " + str(user))
+
+    def whitelist(self, msg, username, user):
+        channel = self.client.get_channel(707777532555952158)
+        await channel.send(f"whitelist add {mc_username}")
+        await msg.send(f"Registered {str(user)} as {mc_username}")
 
 def setup(client):
     client.add_cog(Register(client))
