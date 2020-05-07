@@ -10,20 +10,17 @@ class Info(commands.Cog):
 
     @commands.command()
     async def help(self, msg):
-
-        embed = discord.Embed(
+        helpEmbed = discord.Embed(
             title="DuckBot Help", 
             description="[**GitHub**](https://www.github.com/dapp3rduck/duckclient)"
         )
-
-        for command in self.info:
-            embed.add_field(
-                name=f"d!{command}",
-                value=self.info[command], 
+        for cmd in self.info:
+            helpEmbed.add_field(
+                name=f"d!{cmd}",
+                value=self.info[cmd], 
                 inline=False
             )
-
-        await msg.send(embed=embed)
+        await msg.send(embed=helpEmbed)
 
 def setup(client):
     client.add_cog(Info(client))
