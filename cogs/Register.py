@@ -9,6 +9,7 @@ class Register(commands.Cog):
     # Register for Dapp3rCraft
     @commands.command()
     async def register(self, msg):
+        
         return
 
 def setup(client):
