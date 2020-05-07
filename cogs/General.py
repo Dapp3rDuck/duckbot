@@ -13,15 +13,18 @@ class General(commands.Cog):
 
     @commands.command()
     async def ping(self, msg):
-        await msg.send(f"{round(client.latency * 1000)}ms")
+        latency = round(client.latency * 1000)
+        await msg.send(f"{latency}ms")
 
     @commands.command()
     async def insult(self, msg, *, text):
-        await msg.send(f"{text} {self.get_rand_element(self.insults)}")
+        rand_insult = self.get_rand_element(self.insults)
+        await msg.send(f"{text} {rand_insult}")
 
     @commands.command()
     async def compliment(self, msg, *, text):
-        await msg.send(f"{text} {self.get_rand_element(self.compliments)}")
+        rand_compliment = self.get_rand_element(self.compliments)
+        await msg.send(f"{text} {rand_compliment}")
 
     def get_rand_element(self, arr):
         return arr[random.randint(0, len(arr) - 1)]

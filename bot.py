@@ -1,7 +1,5 @@
 import os
-import random
 import discord
-import validators
 
 from discord.ext import commands
 from dotenv import load_dotenv
