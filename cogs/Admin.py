@@ -11,16 +11,27 @@ class Admin(commands.Cog):
         self.client = client
         self.admins = info.bot_admins
         self.admin_role = get(user.guild.roles, name="Admin")
+        self.console_channel = client.get_channel(707777532555952158)
 
     @commands.command()
     async def ban(self, msg):
         user = msg.message.author
-        console_channel = self.client.get_channel(707777532555952158)
         mc_username = msg.message.content.replace("d!ban ", "")
 
         if self.admin_role in user.roles:
-            await console_channel.send(f"ban {mc_username}")
+            await self.console_channel.send(f"ban {mc_username}")
             await msg.send(f"**{mc_username}** has been banned.")
+        else: 
+            await msg.send("You do not have permission to use this command!")
+
+    @commands.command()
+    async def unban(self, msg):
+        user = msg.message.author
+        mc_username = msg.message.content.replace("d!unban", "")
+
+        if self.admin_role in user.roles: 
+            await self.console_channel.send(f"unban {mc_username}")
+            await msg.send(f"**{mc_username}** has been unbanned.")
         else: 
             await msg.send("You do not have permission to use this command!")
 
