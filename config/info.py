@@ -10,7 +10,12 @@ help = {
     "meme": "Recieve a random meme from the database"
 }
 
-botAdmins = [
+bot_admins = [
+    '361247994630242304', 
+    '296862365503193098'
+]
+
+bot_members = [
     '296862365503193098', 
     '394887586386149387', 
     '361247994630242304', 
