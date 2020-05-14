@@ -29,7 +29,7 @@ class Register(commands.Cog):
             await channel.send(f"whitelist remove {mc_username}")
             await msg.send(f"**{mc_username}** has been unregistered from the Minecraft server.")
         else: 
-            msg.send("You do not have permission to use this command!")
+            await msg.send("You do not have permission to use this command!")
 
     async def whitelist(self, msg, username, user):
         channel = self.client.get_channel(707777532555952158)
