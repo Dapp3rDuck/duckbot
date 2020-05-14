@@ -19,8 +19,8 @@ class Register(commands.Cog):
         else:
             await msg.send("Registered " + str(user))
 
+    @commands.command()
     async def unregister(self, msg):
-        admin_role = get(user.guild.roles, name="Admin")
         user = msg.message.author
         mc_username = msg.message.content.replace("d!unregister ", "")
         await self.console_channel.send(f"whitelist remove {mc_username}")
