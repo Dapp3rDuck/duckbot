@@ -22,13 +22,9 @@ class Register(commands.Cog):
     async def unregister(self, msg):
         admin_role = get(user.guild.roles, name="Admin")
         user = msg.message.author
-        mc_username = msg.message.content.replace("d!register ", "")
-        
-        if admin_role in user.roles: 
-            await self.console_channel.send(f"whitelist remove {mc_username}")
-            await msg.send(f"**{mc_username}** has been unregistered from the Minecraft server.")
-        else: 
-            await msg.send("You do not have permission to use this command!")
+        mc_username = msg.message.content.replace("d!unregister ", "")
+        await self.console_channel.send(f"whitelist remove {mc_username}")
+        await msg.send(f"**{mc_username}** has been unregistered from the Minecraft server.")
 
     async def whitelist(self, msg, username, user):
         channel = self.client.get_channel(707777532555952158)
