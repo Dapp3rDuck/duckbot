@@ -6,6 +6,7 @@ class Register(commands.Cog):
 
     def __init__(self, client):
         self.client = client
+        self.console_channel = client.get_channel(707777532555952158)
 
     # Register for Dapp3rCraft
     @commands.command()
@@ -22,6 +23,7 @@ class Register(commands.Cog):
     @commands.command()
     async def unregister(self, msg):
         user = msg.message.author
+        admin_role = get(user.guild.roles, name="Admin")
         mc_username = msg.message.content.replace("d!unregister ", "")
         await self.console_channel.send(f"whitelist remove {mc_username}")
         await msg.send(f"**{mc_username}** has been unregistered from the Minecraft server.")

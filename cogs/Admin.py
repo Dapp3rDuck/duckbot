@@ -14,8 +14,8 @@ class Admin(commands.Cog):
 
     @commands.command()
     async def ban(self, msg):
-        admin_role = get(user.guild.roles, name="Admin")
         user = msg.message.author
+        admin_role = get(user.guild.roles, name="Admin")
         mc_username = msg.message.content.replace("d!ban ", "")
 
         if admin_role in user.roles:
