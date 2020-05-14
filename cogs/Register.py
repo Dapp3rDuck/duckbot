@@ -30,7 +30,7 @@ class Register(commands.Cog):
         else: 
             await msg.send("You do not have permission to use this command!")
 
-    def whitelist(self, msg, username, user):
+    async def whitelist(self, msg, username, user):
         channel = self.client.get_channel(707777532555952158)
         await channel.send(f"whitelist add {mc_username}")
         await msg.send(f"Registered {str(user)} as {mc_username}")
