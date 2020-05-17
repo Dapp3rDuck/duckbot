@@ -35,5 +35,13 @@ class Admin(commands.Cog):
         else: 
             await msg.send("You do not have permission to use this command!")
 
+    @commands.command()
+    async def donate(self, msg):
+        donateEmbed = discord.Embed(
+            title="Donate", 
+            description="You can make make a donation [here](https://www.gofundme.com/f/dapp3r-craft-server-upgrades)!"
+        )
+        await msg.send(embed=donateEmbed)
+
 def setup(client):
     client.add_cog(Admin(client))
