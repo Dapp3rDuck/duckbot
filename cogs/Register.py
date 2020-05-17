@@ -13,6 +13,7 @@ class Register(commands.Cog):
         user = msg.message.author
         role = get(user.guild.roles, name="Members")
         mc_username = msg.message.content.replace("d!register ", "")
+        f = open("../registered.txt", "w")
         await user.add_roles(role)
         if mc_username != "d!register":
             await self.whitelist(msg, mc_username, user)
