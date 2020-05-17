@@ -1,4 +1,5 @@
 import discord
+import os.path
 from discord.ext import commands
 from discord.utils import get
 
@@ -13,14 +14,15 @@ class Register(commands.Cog):
         user = msg.message.author
         role = get(user.guild.roles, name="Members")
         mc_username = msg.message.content.replace("d!register ", "")
-        f = open("../registered.txt", "w")
+        path = os.path.dirname(__file__)
+        f = open(f"{path}/../registered.txt", "w")
         await user.add_roles(role)
         if mc_username != "d!register":
             await self.whitelist(msg, mc_username, user)
             f.write(f"{msg.message.author.id} {mc_username}")
         else:
             await msg.send("Registered " + str(user))
-            f.write(f"{msg.message.author.id} /")
+            f.write(f"{msg.message.author.id} ")
         f.close()
 
     @commands.command()
