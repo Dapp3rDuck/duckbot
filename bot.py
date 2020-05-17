@@ -36,7 +36,7 @@ async def on_member_remove(member):
             general  = client.get_channel(361645469094379522)
             await console.send(f"whitelist remove {mc_username}")
             print(f"{discord_id} has been removed from the whitelist.")
-            await general.send(f"{member.nick} left the server :[")
+            await general.send(f"{member.name} left the server :[")
             new_line = str(discord_id) + " " + mc_username
             with open("registered.txt", "r") as f:
                 lines = f.readlines()
