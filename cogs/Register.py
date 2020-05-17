@@ -25,23 +25,5 @@ class Register(commands.Cog):
             f.write(f"{msg.message.author.id} ")
         f.close()
 
-    @commands.command()
-    async def unregister(self, msg):
-        user = msg.message.author
-        admin_role = get(user.guild.roles, name="Admin")
-        mc_username = msg.message.content.replace("d!unregister ", "")
-        channel = self.client.get_channel(707777532555952158)
-        if admin_role in user.roles:
-            await channel.send(f"whitelist remove {mc_username}")
-            await msg.send(f"**{mc_username}** has been unregistered from the Minecraft server.")
-        else: 
-            await msg.send("You do not have permission to use this command!")
-
-    async def whitelist(self, msg, mc_username, user):
-        channel = self.client.get_channel(707777532555952158)
-        await channel.send(f"whitelist add {mc_username}")
-        await msg.send(f"Registered {str(user)} as {mc_username}")
-        await msg.send("Join the Minecraft server with ip: **livepond.net**")
-
 def setup(client):
     client.add_cog(Register(client))
