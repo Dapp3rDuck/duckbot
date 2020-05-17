@@ -37,7 +37,12 @@ async def on_member_remove(member):
             await console.send(f"whitelist remove {mc_username}")
             print(f"{discord_id} has been removed from the whitelist.")
             await general.send(f"{member.username} left the server :[")
-            open("registered.txt", "w").#IDK HOW DO DELETA A LINE  HELP LESIR!
+            with open("yourfile.txt", "r") as f:
+                lines = f.readlines()
+            with open("yourfile.txt", "w") as f:
+                for line in lines:
+                    if line.strip("\n") != (f"{discord_id} {mc_username}"):
+                        f.write(line)
 
 @client.event
 async def on_member_join(member):
