@@ -31,9 +31,9 @@ async def on_member_remove(member):
         discord_id = user[0]
         mc_username = user[1]
 
-        if discord_id == member.id:
-            console = self.client.get_channel(707777532555952158)
-            general  = self.client.get_channel(361645469094379522)
+        if int(discord_id) == member.id:
+            console = client.get_channel(707777532555952158)
+            general  = client.get_channel(361645469094379522)
             await console.send(f"whitelist remove {mc_username}")
             print(f"{discord_id} has been removed from the whitelist.")
             await general.send(f"{member.username} left the server :[")
