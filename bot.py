@@ -37,11 +37,12 @@ async def on_member_remove(member):
             await console.send(f"whitelist remove {mc_username}")
             print(f"{discord_id} has been removed from the whitelist.")
             await general.send(f"{member.username} left the server :[")
+            new_line = str(dicord_id) + " " + mc_username
             with open("yourfile.txt", "r") as f:
                 lines = f.readlines()
             with open("yourfile.txt", "w") as f:
                 for line in lines:
-                    if line.strip("\n") != (f"{discord_id} {mc_username}"):
+                    if line.strip("\n") != new_line:
                         f.write(line)
 
 @client.event

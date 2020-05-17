@@ -20,7 +20,7 @@ class Register(commands.Cog):
             f.write(f"{msg.message.author.id} {mc_username}")
         else:
             await msg.send("Registered " + str(user))
-            f.write(f"{msg.message.author.id} {/}")
+            f.write(f"{msg.message.author.id} /")
         f.close()
 
     @commands.command()
