@@ -17,8 +17,11 @@ class Register(commands.Cog):
         await user.add_roles(role)
         if mc_username != "d!register":
             await self.whitelist(msg, mc_username, user)
+            f.write(f"{msg.message.author.id} {mc_username}")
         else:
             await msg.send("Registered " + str(user))
+            f.write(f"{msg.message.author.id}")
+        f.close()
 
     @commands.command()
     async def unregister(self, msg):

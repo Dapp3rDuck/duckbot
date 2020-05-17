@@ -34,8 +34,10 @@ async def on_member_remove(member):
         mc_username = user[1]
 
         if discord_id == member.id:
-            channel = self.client.get_channel(707777532555952158)
-            await channel.send(f"whitelist remove mc_username")
+            console = self.client.get_channel(707777532555952158)
+            general  = self.client.get_channel(361645469094379522)
+            await console.send(f"whitelist remove {mc_username}")
+
             print(f"{discord_id} has been removed from the whitelist.")
             # delete the line from the file.
 
