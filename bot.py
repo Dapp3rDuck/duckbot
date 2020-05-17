@@ -24,7 +24,6 @@ async def on_ready():
 async def on_member_remove(member):
     print(f"{member.id} left the server.")
 
-    path = os.path.dirname(__file__)
     registered = open("registered.txt", "r").readlines()
 
     for user in registered:
@@ -38,9 +37,7 @@ async def on_member_remove(member):
             await console.send(f"whitelist remove {mc_username}")
             print(f"{discord_id} has been removed from the whitelist.")
             await general.send(f"{member.username} left the server :[")
-            open()
-
-    # un-whitelist them from the mc server
+            open("registered.txt", "w").#IDK HOW DO DELETA A LINE  HELP LESIR!
 
 @client.event
 async def on_member_join(member):
