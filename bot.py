@@ -19,6 +19,11 @@ async def on_ready():
         )
     )
 
+@client.event
+async def on_member_remove(member):
+    print(f"{member.id} left the server.")
+    # un-whitelist them from the mc server
+
 for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):
         client.load_extension(f'cogs.{filename[:-3]}')
