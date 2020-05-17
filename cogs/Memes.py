@@ -20,12 +20,12 @@ class Memes(commands.Cog):
                 url = msg.message.content.replace("d!addmeme ", "")
             if validators.url(url):
                 path = os.path.dirname(__file__)
-                open(f"{path}/../memes.txt", "a").write('\n' + url)
-                await msg.send('Added to meme database.')
+                open(f"{path}/../memes.txt", "a").write("\n" + url)
+                await msg.send("Added to meme database.")
             else: 
-                await msg.send('INVALID LINK')
+                await msg.send("INVALID LINK")
         else:
-            return await msg.send('You do not have permissions to use this command!')
+            return await msg.send("You do not have permissions to use this command!")
 
     @commands.command()
     async def meme(self, msg):
