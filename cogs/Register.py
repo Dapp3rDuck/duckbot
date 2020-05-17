@@ -8,7 +8,12 @@ class Register(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    # Register for Dapp3rCraft
+    async def whitelist(self, msg, mc_username, user):
+        channel = self.client.get_channel(707777532555952158)
+        await channel.send(f"whitelist add {mc_username}")
+        await msg.send(f"Registered {str(user)} as {mc_username}")
+        await msg.send("Join the Minecraft server with ip: **livepond.net**")
+
     @commands.command()
     async def register(self, msg):
         user = msg.message.author
