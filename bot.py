@@ -1,4 +1,5 @@
 import os
+import os.path
 import discord
 
 from discord.ext import commands
@@ -22,7 +23,27 @@ async def on_ready():
 @client.event
 async def on_member_remove(member):
     print(f"{member.id} left the server.")
+
+    path = os.path.dirname(__file__)
+    registered = open(f"{path}/registered.txt").readlines()
+
+    for user in registered: 
+        print(user)
+        user = user.split(" ")
+        discord_id = user[0]
+        mc_username = user[1]
+
+        if discord_id == member.id:
+            channel = self.client.get_channel(707777532555952158)
+            await channel.send(f"whitelist remove mc_username")
+            print(f"{discord_id} has been removed from the whitelist.")
+            # delete the line from the file.
+
     # un-whitelist them from the mc server
+
+@client.event
+async def on_member_join(member):
+    pass
 
 for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):
