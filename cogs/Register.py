@@ -38,8 +38,10 @@ class Register(commands.Cog):
                 f.write(f"{msg.message.author.id} \n")
             f.close()
         
-        elif (list[x].split(" ")[1] != mc_username):
+        elif (list[x].split(" ")[1] != mc_username + "\n"):
             if mc_username != "d!register":
+                channel = self.client.get_channel(707777532555952158)
+                await channel.send(f"whitelist remove {mc_username}")
                 await self.whitelist(msg, mc_username, user)
                 new_line = str(msg.message.author.id)
                 lines = open("registered.txt", "r").readlines()
