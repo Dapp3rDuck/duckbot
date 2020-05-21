@@ -16,6 +16,7 @@ class Register(commands.Cog):
 
     @commands.command()
     async def register(self, msg):
+        oldname = ""
         user = msg.message.author
         role = get(user.guild.roles, name="Members")
         mc_username = msg.message.content.replace("d!register ", "")
@@ -27,6 +28,7 @@ class Register(commands.Cog):
         for x in range (len(list)):
             if (list[x].split(" ")[0] == str(msg.message.author.id)):
                 already_registered = True
+                oldname = list[x].split(" ")[1]
     
         if already_registered != True:
             await user.add_roles(role)
@@ -41,6 +43,7 @@ class Register(commands.Cog):
         elif (list[x].split(" ")[1] != mc_username + "\n"):
             if mc_username != "d!register":
                 console_channel = self.client.get_channel(707777532555952158)
+                await console_channel.send(f"whitelist remove {oldname}")
                 await self.whitelist(msg, mc_username, user)
                 new_line = str(msg.message.author.id)
                 lines = open("registered.txt", "r").readlines()
