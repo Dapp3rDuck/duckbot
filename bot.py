@@ -12,7 +12,7 @@ client.remove_command("help")
 
 async def remove_whitelist(mc_username, member, discord_id):
     console_channel = client.get_channel(707777532555952158)
-    general_channel = client.get_channel(361645469094379522)
+    general_channel = client.get_channel(363084167321223168)
     await console_channel.send(f"whitelist remove {mc_username}")
     await general_channel.send(f"**{member.name}** left the server")
     new_line = str(discord_id)
