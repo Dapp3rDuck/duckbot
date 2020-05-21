@@ -38,7 +38,7 @@ class Register(commands.Cog):
                 f.write(f"{msg.message.author.id} \n")
             f.close()
         
-        elif (list[x].split(" ")[1] != ""):
+        elif (list[x].split(" ")[1] != mc_username):
             if mc_username != "d!register":
                 await self.whitelist(msg, mc_username, user)
                 new_line = str(msg.message.author.id)
