@@ -25,7 +25,7 @@ class Register(commands.Cog):
         already_registered = False
 
         for x in range (len(list)):
-            if list[x].split(" ")[0] == str(msg.message.author.id):
+            if (list[x].split(" ")[0] == str(msg.message.author.id)):
                 already_registered = True
     
         if already_registered != True:
