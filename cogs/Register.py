@@ -21,14 +21,15 @@ class Register(commands.Cog):
         mc_username = msg.message.content.replace("d!register ", "")
         path = os.path.dirname(__file__)
         f = open(f"{path}/../registered.txt", "a")
-        await user.add_roles(role)
-        if mc_username != "d!register":
-            await self.whitelist(msg, mc_username, user)
-            f.write(f"{msg.message.author.id} {mc_username}\n")
-        else:
-            await msg.send("Registered " + str(user))
-            f.write(f"{msg.message.author.id} \n")
-        f.close()
+        list = open(f"{path}/../registered.txt", "r").readlines()   
+            await user.add_roles(role)
+            if mc_username != "d!register":
+                await self.whitelist(msg, mc_username, user)
+                f.write(f"{msg.message.author.id} {mc_username}\n")
+            else:
+                await msg.send("Registered " + str(user))
+                f.write(f"{msg.message.author.id} \n")
+            f.close()
 
 def setup(client):
     client.add_cog(Register(client))
