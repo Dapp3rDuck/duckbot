@@ -37,6 +37,11 @@ class Register(commands.Cog):
                 await msg.send("Registered " + str(user))
                 f.write(f"{msg.message.author.id} \n")
             f.close()
+        elif (list[x].split(" ")[1] != ""):
+            if mc_username != "d!register":
+                await self.whitelist(msg, mc_username, user)
+            else:
+                await msg.send("You are already registered!")
         else:
             await msg.send("You are already registered!")
 
