@@ -19,6 +19,7 @@ class Register(commands.Cog):
         user = msg.message.author
         role = get(user.guild.roles, name="Members")
         mc_username = msg.message.content.replace("d!register ", "")
+        oldname = mc_username
         path = os.path.dirname(__file__)
         f = open(f"{path}/../registered.txt", "a")
         list = open(f"{path}/../registered.txt", "r").readlines()
@@ -41,7 +42,8 @@ class Register(commands.Cog):
         elif (list[x].split(" ")[1] != mc_username + "\n"):
             if mc_username != "d!register":
                 channel = self.client.get_channel(707777532555952158)
-                await channel.send(f"whitelist remove {mc_username}")
+                await channel.send(f"whitelist remove {oldname}")
+                print(f"whitelist remove {oldname}")
                 await self.whitelist(msg, mc_username, user)
                 new_line = str(msg.message.author.id)
                 lines = open("registered.txt", "r").readlines()
