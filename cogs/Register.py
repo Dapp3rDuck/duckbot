@@ -23,9 +23,11 @@ class Register(commands.Cog):
         f = open(f"{path}/../registered.txt", "a")
         list = open(f"{path}/../registered.txt", "r").readlines()
         already_registered = False
+
         for x in range (len(list)):
-            if list[x].split(" ")[1] == msg.message.author.id:
+            if list[x].split(" ")[0] == str(msg.message.author.id):
                 already_registered = True
+    
         if already_registered != True:
             await user.add_roles(role)
             if mc_username != "d!register":
