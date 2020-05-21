@@ -24,9 +24,9 @@ class Register(commands.Cog):
         list = open(f"{path}/../registered.txt", "r").readlines()
         already_registered = False
         for x in range (len(list)):
-            if list[x].split(" ")[1] = user:
+            if list[x].split(" ")[1] == msg.message.author.id:
                 already_registered = True
-        if already_registered != True
+        if already_registered != True:
             await user.add_roles(role)
             if mc_username != "d!register":
                 await self.whitelist(msg, mc_username, user)
@@ -35,6 +35,8 @@ class Register(commands.Cog):
                 await msg.send("Registered " + str(user))
                 f.write(f"{msg.message.author.id} \n")
             f.close()
+        else:
+            await msg.send("You are already registered!")
 
 def setup(client):
     client.add_cog(Register(client))
