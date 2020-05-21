@@ -40,7 +40,7 @@ async def on_member_remove(member):
         discord_id = user[0]
         mc_username = user[1]
         if int(discord_id) == member.id:
-            remove_whitelist(mc_username, member, discord_id)
+            await remove_whitelist(mc_username, member, discord_id)
 
 @client.event
 async def on_member_join(member):
