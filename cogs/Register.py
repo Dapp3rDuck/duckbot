@@ -21,7 +21,12 @@ class Register(commands.Cog):
         mc_username = msg.message.content.replace("d!register ", "")
         path = os.path.dirname(__file__)
         f = open(f"{path}/../registered.txt", "a")
-        list = open(f"{path}/../registered.txt", "r").readlines()   
+        list = open(f"{path}/../registered.txt", "r").readlines()
+        already_registered = False
+        for x in range (len(list)):
+            if list[x].split(" ")[1] = user:
+                already_registered = True
+        if already_registered != True
             await user.add_roles(role)
             if mc_username != "d!register":
                 await self.whitelist(msg, mc_username, user)
