@@ -41,11 +41,13 @@ class Register(commands.Cog):
         elif (list[x].split(" ")[1] != ""):
             if mc_username != "d!register":
                 await self.whitelist(msg, mc_username, user)
+                new_line = str(msg.message.author.id)
+                lines = open("registered.txt", "r").readlines()
                 with open("registered.txt", "w") as z:
-                     for line in lines:
-                        if line.split(" ")[0] != msg.message.author.id:
+                    for line in lines:
+                        if line.split(" ")[0] != new_line:
                             z.write(line)
-                f.write(f"{msg.message.author.id} {mc_username}\n")
+                open("registered.txt", "a").write(f"{msg.message.author.id} {mc_username}\n")
             else:
                 await msg.send("You are already registered!")
         else:
