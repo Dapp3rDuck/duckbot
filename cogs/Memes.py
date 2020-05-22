@@ -18,14 +18,14 @@ class Memes(commands.Cog):
                 url = msg.message.attachments[0].url
             except: 
                 url = msg.message.content.replace("d!addmeme ", "")
+            path = os.path.dirname(__file__)
             if validators.url(url):
-                memes = open(f"{path}/../memes.txt", "r").readlines
+                memes = open(f"{path}/../memes.txt", "r").readlines()
                 duplicate = False
-                for x in range len(memes):
+                for x in range (len(memes)):
                     if (memes[x] == url + "\n"):
                         duplicate = True
-                if Duplicate == False:
-                    path = os.path.dirname(__file__)
+                if duplicate == False:
                     open(f"{path}/../memes.txt", "a").write("\n" + url)
                     await msg.send("Added to meme database.")
                 else:
