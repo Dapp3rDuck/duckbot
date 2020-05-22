@@ -19,11 +19,19 @@ class Memes(commands.Cog):
             except: 
                 url = msg.message.content.replace("d!addmeme ", "")
             if validators.url(url):
-                path = os.path.dirname(__file__)
-                open(f"{path}/../memes.txt", "a").write("\n" + url)
-                await msg.send("Added to meme database.")
+                memes = open(f"{path}/../memes.txt", "r").readlines
+                duplicate = False
+                for x in range len(memes):
+                    if (memes[x] == url + "\n"):
+                        duplicate = True
+                if Duplicate == False:
+                    path = os.path.dirname(__file__)
+                    open(f"{path}/../memes.txt", "a").write("\n" + url)
+                    await msg.send("Added to meme database.")
+                else:
+                    await msg.send("I already have that meme!")
             else: 
-                await msg.send("INVALID LINK")
+                await msg.send("Invalid Link!")
         else:
             return await msg.send("You do not have permissions to use this command!")
 
