@@ -39,21 +39,17 @@ class Register(commands.Cog):
                 await msg.send("Registered " + str(user))
                 f.write(f"{msg.message.author.id} \n")
             f.close()
-        
-        elif (list[x].split(" ")[1] != mc_username + "\n"):
-            if mc_username != "d!register":
-                console_channel = self.client.get_channel(707777532555952158)
-                await console_channel.send(f"whitelist remove {oldname}")
-                await self.whitelist(msg, mc_username, user)
-                new_line = str(msg.message.author.id)
-                lines = open("registered.txt", "r").readlines()
-                with open("registered.txt", "w") as z:
-                    for line in lines:
-                        if line.split(" ")[0] != new_line:
-                            z.write(line)
-                open("registered.txt", "a").write(f"{msg.message.author.id} {mc_username}\n")
-            else:
-                await msg.send("You are already registered!")
+        elif (list[x].split(" ")[1] != mc_username + "\n") and (mc_username != "d!register"):
+            console_channel = self.client.get_channel(707777532555952158)
+            await console_channel.send(f"whitelist remove {oldname}")
+            await self.whitelist(msg, mc_username, user)
+            new_line = str(msg.message.author.id)
+            lines = open("registered.txt", "r").readlines()
+            with open("registered.txt", "w") as z:
+                for line in lines:
+                    if line.split(" ")[0] != new_line:
+                        z.write(line)
+            open("registered.txt", "a").write(f"{msg.message.author.id} {mc_username}\n"))
         else:
             await msg.send("You are already registered!")
 
