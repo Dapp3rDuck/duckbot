@@ -30,7 +30,7 @@ class Register(commands.Cog):
                 already_registered = True
                 oldname = list[x].split(" ")[1]
     
-        if already_registered != True:
+        if already_registered == False:
             await user.add_roles(role)
             if mc_username != "d!register":
                 await self.whitelist(msg, mc_username, user)
@@ -39,7 +39,7 @@ class Register(commands.Cog):
                 await msg.send("Registered " + str(user))
                 f.write(f"{msg.message.author.id} \n")
             f.close()
-        elif (list[x].split(" ")[1] != mc_username + "\n") and (mc_username != "d!register"):
+        elif (oldname != mc_username + "\n") and (mc_username != "d!register"):
             console_channel = self.client.get_channel(707777532555952158)
             await console_channel.send(f"whitelist remove {oldname}")
             await self.whitelist(msg, mc_username, user)
@@ -49,7 +49,7 @@ class Register(commands.Cog):
                 for line in lines:
                     if line.split(" ")[0] != new_line:
                         z.write(line)
-            open("registered.txt", "a").write(f"{msg.message.author.id} {mc_username}\n"))
+            open("registered.txt", "a").write(f"{msg.message.author.id} {mc_username}\n")
         else:
             await msg.send("You are already registered!")
 
