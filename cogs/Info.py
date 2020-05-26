@@ -12,7 +12,7 @@ class Info(commands.Cog):
     async def help(self, msg):
         helpEmbed = discord.Embed(
             title="DuckBot Help", 
-            description="[**GitHub**](https://www.github.com/dapp3rduck/duckclient)"
+            description="[**dapp3rcraft.com**](http://www.dapp3rcraft.com/)"
         )
         for cmd in self.info:
             helpEmbed.add_field(
