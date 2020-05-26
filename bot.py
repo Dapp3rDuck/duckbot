@@ -46,6 +46,10 @@ async def on_member_remove(member):
 async def on_member_join(member):
     pass
 
+@client.command()
+async def ping(msg):
+    await msg.send(f"{round(client.latency * 1000)}ms")
+
 for filename in os.listdir("./cogs"):
     if filename.endswith(".py"):
         client.load_extension(f"cogs.{filename[:-3]}")
