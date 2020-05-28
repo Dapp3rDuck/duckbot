@@ -25,8 +25,14 @@ class Memes(commands.Cog):
                 for x in range (len(memes)):
                     if (memes[x] == url + "\n"):
                         duplicate = True
-                if duplicate == False:
-                    open(f"{path}/../memes/{server}.txt", "a").write("\n" + url)
+                if duplicate == False:      
+                    try:
+                        open(f"{path}/../memes/{server}.txt", "a").write("\n" + url)
+                    except:
+                        with open(f"{path}/../memes/{server}.txt", 'w') as fp: 
+                            pass
+                        open(f"{path}/../memes/{server}.txt", "a").write("\n" + url)
+                        
                     await msg.send("Added to meme database.")
                 else:
                     await msg.send("I already have that meme!")
