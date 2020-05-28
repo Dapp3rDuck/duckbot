@@ -1,7 +1,6 @@
 help = {
     "help": "Does this", 
     "ping": "Shows your ping",
-    "register": "Allows new users to access the server",
     "donate": "Gives the donate link", 
     "spam": "Spams a message", 
     "stop": "Stops spamming... maybe",
