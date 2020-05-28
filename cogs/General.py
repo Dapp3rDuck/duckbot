@@ -25,8 +25,8 @@ class General(commands.Cog):
     async def ping(self, msg):
         await msg.send(f"{round(self.client.latency * 1000)}ms")
 
-    @client.command()
-    async def invite(msg):
+    @commands.command()
+    async def invite(self, msg):
         await msg.send(f"Invite the bot [**here**](https://discord.com/api/oauth2/authorize?client_id=707128143349022820&permissions=8&scope=bot).")
 
     def get_rand_element(self, arr):
