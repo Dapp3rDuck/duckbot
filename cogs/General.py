@@ -12,11 +12,6 @@ class General(commands.Cog):
         self.compliments = open(f"{path}/../compliments.txt", "r").readlines()
 
     @commands.command()
-    async def ping(self, msg):
-        latency = round(client.latency * 1000)
-        await msg.send(f"{latency}ms")
-
-    @commands.command()
     async def insult(self, msg, *, text):
         rand_insult = self.get_rand_element(self.insults)
         await msg.send(f"{text} {rand_insult}")
