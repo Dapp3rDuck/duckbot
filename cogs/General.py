@@ -21,9 +21,9 @@ class General(commands.Cog):
         rand_compliment = self.get_rand_element(self.compliments)
         await msg.send(f"{text} {rand_compliment}")
     
-    @client.command()
-    async def ping(msg):
-        await msg.send(f"{round(client.latency * 1000)}ms")
+    @commands.command()
+    async def ping(self, msg):
+        await msg.send(f"{round(self.client.latency * 1000)}ms")
 
     @client.command()
     async def invite(msg):
