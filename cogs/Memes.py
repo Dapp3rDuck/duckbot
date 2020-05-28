@@ -1,7 +1,6 @@
 import discord
 import validators
 import random
-import os
 import os.path
 from config import info
 from discord.ext import commands
@@ -14,14 +13,14 @@ class Memes(commands.Cog):
     @commands.command()
     async def addmeme(self, msg):
         server = msg.guild.id
+        path = os.path.dirname(__file__)
         if True:   
             try: 
                 url = msg.message.attachments[0].url
             except: 
                 url = msg.message.content.replace("d!addmeme ", "")
-            path = os.path.dirname(__file__)
             if validators.url(url):
-                os.mknod(f"{path}/../memes/{server}.txt")
+                open(f"{path}/../memes/{server}.txt", 'a').close()
                 memes = open(f"{path}/../memes/{server}.txt", "r").readlines()
                 duplicate = False
                 for x in range (len(memes)):
