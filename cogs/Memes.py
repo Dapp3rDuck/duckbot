@@ -12,6 +12,7 @@ class Memes(commands.Cog):
 
     @commands.command()
     async def addmeme(self, msg):
+        server = msg.message.server
         if True:   
             try: 
                 url = msg.message.attachments[0].url
@@ -19,13 +20,13 @@ class Memes(commands.Cog):
                 url = msg.message.content.replace("d!addmeme ", "")
             path = os.path.dirname(__file__)
             if validators.url(url):
-                memes = open(f"{path}/../memes.txt", "r").readlines()
+                memes = open(f"{path}/../memes/{server}.txt", "r").readlines()
                 duplicate = False
                 for x in range (len(memes)):
                     if (memes[x] == url + "\n"):
                         duplicate = True
                 if duplicate == False:
-                    open(f"{path}/../memes.txt", "a").write("\n" + url)
+                    open(f"{path}/../memes/{server}.txt", "a").write("\n" + url)
                     await msg.send("Added to meme database.")
                 else:
                     await msg.send("I already have that meme!")
@@ -37,7 +38,7 @@ class Memes(commands.Cog):
     @commands.command()
     async def meme(self, msg):
         path = os.path.dirname(__file__)
-        memes = open(f"{path}/../memes.txt", "r").readlines()
+        memes = open(f"{path}/../memes/{server}.txt", "r").readlines()
         rand_meme = self.get_rand_element(memes)
         await msg.send(rand_meme)
 
