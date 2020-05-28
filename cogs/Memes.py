@@ -1,6 +1,7 @@
 import discord
 import validators
 import random
+import os
 import os.path
 from config import info
 from discord.ext import commands
@@ -29,10 +30,8 @@ class Memes(commands.Cog):
                     try:
                         open(f"{path}/../memes/{server}.txt", "a").write("\n" + url)
                     except:
-                        with open(f"{path}/../memes/{server}.txt", 'w') as fp: 
-                            pass
-                        open(f"{path}/../memes/{server}.txt", "a").write("\n" + url)
-                        
+                        os.mknod(f"{path}/../memes/{server}.txt")
+                        open(f"{path}/../memes/{server}.txt", "a").write("\n" + url)                  
                     await msg.send("Added to meme database.")
                 else:
                     await msg.send("I already have that meme!")
