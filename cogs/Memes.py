@@ -20,7 +20,7 @@ class Memes(commands.Cog):
             memes = open(f"{path}/../memes/{server}.txt", "r").readlines()
         except:
             memes = []
-            
+
         try: 
             url = msg.message.attachments[0].url
         except: 
@@ -28,7 +28,7 @@ class Memes(commands.Cog):
         if validators.url(url):
             duplicate = False
             for x in range (len(memes)):
-                if (memes[x] == url + "\n"):
+                if (memes[x] == url):
                     duplicate = True
             if duplicate == False:      
                 open(f"{path}/../memes/{server}.txt", "a").write("\n" + url)                
@@ -50,7 +50,7 @@ class Memes(commands.Cog):
             await msg.send("I don't have any memes yet!\nAdd one with `d!addmeme`")
 
     def get_rand_element(self, arr):
-        return arr[random.randint(0, len(arr) - 1)]
+        return arr[random.randint(1, len(arr) - 1)]
 
 def setup(client):
     client.add_cog(Memes(client))
