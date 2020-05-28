@@ -12,7 +12,7 @@ class Memes(commands.Cog):
 
     @commands.command()
     async def addmeme(self, msg):
-        server = msg.message.server
+        server = msg.guild.id
         if True:   
             try: 
                 url = msg.message.attachments[0].url
@@ -38,7 +38,7 @@ class Memes(commands.Cog):
     @commands.command()
     async def meme(self, msg):
         path = os.path.dirname(__file__)
-        server = msg.server.id
+        server = msg.guild.id
         try:
             memes = open(f"{path}/../memes/{server}.txt", "r").readlines()
             rand_meme = self.get_rand_element(memes)
