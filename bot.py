@@ -19,10 +19,6 @@ async def on_ready():
         )
     )
 
-@client.command()
-async def ping(msg):
-    await msg.send(f"{round(client.latency * 1000)}ms")
-
 for filename in os.listdir("./cogs"):
     if filename.endswith(".py"):
         client.load_extension(f"cogs.{filename[:-3]}")

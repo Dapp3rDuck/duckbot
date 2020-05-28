@@ -20,6 +20,10 @@ class General(commands.Cog):
     async def compliment(self, msg, *, text):
         rand_compliment = self.get_rand_element(self.compliments)
         await msg.send(f"{text} {rand_compliment}")
+    
+    @client.command()
+    async def ping(msg):
+        await msg.send(f"{round(client.latency * 1000)}ms")
 
     def get_rand_element(self, arr):
         return arr[random.randint(0, len(arr) - 1)]
