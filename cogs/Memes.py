@@ -38,6 +38,7 @@ class Memes(commands.Cog):
     @commands.command()
     async def meme(self, msg):
         path = os.path.dirname(__file__)
+        server = server.id
         try:
             memes = open(f"{path}/../memes/{server}.txt", "r").readlines()
             rand_meme = self.get_rand_element(memes)
