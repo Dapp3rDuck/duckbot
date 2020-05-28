@@ -9,7 +9,6 @@ class Memes(commands.Cog):
 
     def __init__(self, client):
         self.client = client
-        self.bot_members = info.bot_members
 
     @commands.command()
     async def addmeme(self, msg):
