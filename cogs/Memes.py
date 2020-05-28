@@ -21,17 +21,14 @@ class Memes(commands.Cog):
                 url = msg.message.content.replace("d!addmeme ", "")
             path = os.path.dirname(__file__)
             if validators.url(url):
+                os.mknod(f"{path}/../memes/{server}.txt")
                 memes = open(f"{path}/../memes/{server}.txt", "r").readlines()
                 duplicate = False
                 for x in range (len(memes)):
                     if (memes[x] == url + "\n"):
                         duplicate = True
                 if duplicate == False:      
-                    try:
-                        open(f"{path}/../memes/{server}.txt", "a").write("\n" + url)
-                    except:
-                        os.mknod(f"{path}/../memes/{server}.txt")
-                        open(f"{path}/../memes/{server}.txt", "a").write("\n" + url)                  
+                    open(f"{path}/../memes/{server}.txt", "a").write("\n" + url)                
                     await msg.send("Added to meme database.")
                 else:
                     await msg.send("I already have that meme!")
