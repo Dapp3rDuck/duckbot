@@ -1,3 +1,5 @@
+                #with open(f"{path}/../memes/{server}.txt", 'w') as fp: pass
+
 import discord
 import validators
 import random
@@ -20,7 +22,7 @@ class Memes(commands.Cog):
             except: 
                 url = msg.message.content.replace("d!addmeme ", "")
             if validators.url(url):
-                open(f"{path}/../memes/{server}.txt", 'a').close()
+
                 memes = open(f"{path}/../memes/{server}.txt", "r").readlines()
                 duplicate = False
                 for x in range (len(memes)):
