@@ -39,9 +39,12 @@ class Memes(commands.Cog):
     @commands.command()
     async def meme(self, msg):
         path = os.path.dirname(__file__)
-        memes = open(f"{path}/../memes/{server}.txt", "r").readlines()
-        rand_meme = self.get_rand_element(memes)
-        await msg.send(rand_meme)
+        try:
+            memes = open(f"{path}/../memes/{server}.txt", "r").readlines()
+            rand_meme = self.get_rand_element(memes)
+            await msg.send(rand_meme)
+        except:
+            await msg.send("I don't have any memes yet!\nAdd one with `d!addmeme`")
 
     def get_rand_element(self, arr):
         return arr[random.randint(0, len(arr) - 1)]
