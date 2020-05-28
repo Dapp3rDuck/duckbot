@@ -16,27 +16,23 @@ class Memes(commands.Cog):
     async def addmeme(self, msg):
         server = msg.guild.id
         path = os.path.dirname(__file__)
-        if True:   
-            try: 
-                url = msg.message.attachments[0].url
-            except: 
-                url = msg.message.content.replace("d!addmeme ", "")
-            if validators.url(url):
-
-                memes = open(f"{path}/../memes/{server}.txt", "r").readlines()
-                duplicate = False
-                for x in range (len(memes)):
-                    if (memes[x] == url + "\n"):
-                        duplicate = True
-                if duplicate == False:      
-                    open(f"{path}/../memes/{server}.txt", "a").write("\n" + url)                
-                    await msg.send("Added to meme database.")
-                else:
-                    await msg.send("I already have that meme!")
-            else: 
-                await msg.send("Invalid Link!")
-        else:
-            return await msg.send("You do not have permissions to use this command!")
+        memes = open(f"{path}/../memes/{server}.txt", "r").readlines()
+        try: 
+            url = msg.message.attachments[0].url
+        except: 
+            url = msg.message.content.replace("d!addmeme ", "")
+        if validators.url(url):
+            duplicate = False
+            for x in range (len(memes)):
+                if (memes[x] == url + "\n"):
+                    duplicate = True
+            if duplicate == False:      
+                open(f"{path}/../memes/{server}.txt", "a").write("\n" + url)                
+                await msg.send("Added to meme database.")
+            else:
+                await msg.send("I already have that meme!")
+        else: 
+            await msg.send("Invalid Link!")
 
     @commands.command()
     async def meme(self, msg):
