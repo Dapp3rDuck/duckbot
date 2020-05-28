@@ -16,7 +16,11 @@ class Memes(commands.Cog):
     async def addmeme(self, msg):
         server = msg.guild.id
         path = os.path.dirname(__file__)
-        memes = open(f"{path}/../memes/{server}.txt", "r").readlines()
+        try:    
+            memes = open(f"{path}/../memes/{server}.txt", "r").readlines()
+        except:
+            memes = []
+            
         try: 
             url = msg.message.attachments[0].url
         except: 
