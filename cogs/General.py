@@ -27,7 +27,11 @@ class General(commands.Cog):
 
     @commands.command()
     async def invite(self, msg):
-        await msg.send(f"Invite the bot [**here**](https://discord.com/api/oauth2/authorize?client_id=707128143349022820&permissions=8&scope=bot).")
+        embed = discord.Embed(
+            title="Invite",
+            description="Invite the bot [**here**](https://discord.com/api/oauth2/authorize?client_id=707128143349022820&permissions=8&scope=bot)."
+        )
+        await msg.send(embed=embed)
 
     def get_rand_element(self, arr):
         return arr[random.randint(0, len(arr) - 1)]

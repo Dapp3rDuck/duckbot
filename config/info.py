@@ -1,5 +1,6 @@
 help = {
     "help": "Does this", 
+    "invite": "Invite the bot to your server!",
     "ping": "Shows your ping",
     "spam": "Spams a message", 
     "stop": "Stops spamming... maybe",
