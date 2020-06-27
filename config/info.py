@@ -7,7 +7,8 @@ help = {
     "insult": "Insults a user of your choice",
     "compliment": "Compliments a user of your choice",
     "addmeme": "Add a meme to the meme database",
-    "meme": "Recieve a random meme from the database"
+    "meme": "Recieve a random meme from the database",
+    "memes": "Display the total number of memes in the database"
 }
 
 bot_admins = [
