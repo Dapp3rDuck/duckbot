@@ -52,5 +52,16 @@ class Memes(commands.Cog):
     def get_rand_element(self, arr):
         return arr[random.randint(1, len(arr) - 1)]
 
+    @commands.command()
+    async def memes(self, msg):
+        path = os.path.dirname(__file__)
+        server = msg.guild.id
+        try:
+            memes = open(f"{path}/../memes/{server}.txt.", "r").readlines()
+            meme_count = len(memes)
+            await msg.send(f"There are **{meme_count}** memes in this server's database.")
+        except:
+            await msg.send("There was an error counting the number of memes!")
+
 def setup(client):
     client.add_cog(Memes(client))
