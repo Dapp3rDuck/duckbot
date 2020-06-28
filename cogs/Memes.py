@@ -1,5 +1,3 @@
-                #with open(f"{path}/../memes/{server}.txt", 'w') as fp: pass
-
 import discord
 import validators
 import random
