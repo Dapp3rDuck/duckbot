@@ -59,6 +59,7 @@ class Memes(commands.Cog):
         try:
             memes = open(f"{path}/../memes/{server}.txt.", "r").readlines()
             meme_count = len(memes)
+            print(f"{meme_count} memes have been counted.")
             await msg.send(f"There are **{meme_count}** memes in this server's database.")
         except:
             await msg.send("There was an error counting the number of memes!")
