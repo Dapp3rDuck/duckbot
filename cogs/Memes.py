@@ -28,7 +28,7 @@ class Memes(commands.Cog):
             for x in range (len(memes)):
                 if (memes[x] == url):
                     duplicate = True
-            if duplicate == False:      
+            if duplicate == False:
                 open(f"{path}/../memes/{server}.txt", "a").write("\n" + url)                
                 await msg.send("Added to meme database.")
             else:
@@ -56,11 +56,14 @@ class Memes(commands.Cog):
         server = msg.guild.id
         try:
             memes = open(f"{path}/../memes/{server}.txt.", "r").readlines()
-            meme_count = len(memes)
+
+            meme_count = 0
+            for line in memes:
+                meme_count += 1
             print(f"{meme_count} memes have been counted.")
             await msg.send(f"There are **{meme_count}** memes in this server's database.")
         except:
-            await msg.send("There was an error counting the number of memes!")
+            await msg.send("An error occurred counting memes!")
 
 def setup(client):
     client.add_cog(Memes(client))
