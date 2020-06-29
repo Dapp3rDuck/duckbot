@@ -53,17 +53,12 @@ class Memes(commands.Cog):
     @commands.command()
     async def memes(self, msg):
         path = os.path.dirname(__file__)
-        server = msg.guild.id
+        server = str(msg.guild.id)
         try:
-            memes = open(f"{path}/../memes/{server}.txt.", "r").readlines()
-
-            meme_count = 0
-            for line in memes:
-                meme_count += 1
-            print(f"{meme_count} memes have been counted.")
-            await msg.send(f"There are **{meme_count}** memes in this server's database.")
-        except:
-            await msg.send("An error occurred counting memes!")
+            memes = open(f"{path}/../memes/{server}.txt", "r").readlines()
+            await msg.send(f"There are **{len(memes)-1}** memes in this server's database.")
+	except:
+	    await msg.send("This server doesen't have any memes yet.\nAdd one with `d!addmeme`!")
 
 def setup(client):
     client.add_cog(Memes(client))
