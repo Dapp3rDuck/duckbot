@@ -57,8 +57,8 @@ class Memes(commands.Cog):
         try:
             memes = open(f"{path}/../memes/{server}.txt", "r").readlines()
             await msg.send(f"There are **{len(memes)-1}** memes in this server's database.")
-	except:
-	    await msg.send("This server doesen't have any memes yet.\nAdd one with `d!addmeme`!")
+        except:
+            await msg.send("This server doesen't have any memes yet.\nAdd one with `d!addmeme`!")
 
 def setup(client):
     client.add_cog(Memes(client))
