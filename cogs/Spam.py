@@ -10,6 +10,9 @@ class Spam(commands.Cog):
     
     @commands.command()
     async def spam(self, msg, *, text):
+        if text.find('@everyone') != -1 or text.find('@here') != -1:
+            return
+        
         self.dospam = True
         while self.dospam:
             time.sleep(1)
